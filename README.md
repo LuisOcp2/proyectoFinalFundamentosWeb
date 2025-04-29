@@ -1,4 +1,4 @@
-# Essence - Tu Perfumería Online 🌺
+# Essence - Tu Perfumería Online 
 
 Una aplicación web para gestionar un catálogo de perfumes, permitiendo visualizar, buscar y registrar productos de manera eficiente.
 
