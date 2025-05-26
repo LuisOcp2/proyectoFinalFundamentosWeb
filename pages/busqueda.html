@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda de Productos - Perfumes Exclusivos</title>
+    <link rel="stylesheet" href="../css/busqueda.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Perfumes Exclusivos</h1>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="registro.html">Registrar</a></li>
+                <li><a href="indicaciones.html">Indicaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="search-section">
+            <h2>Búsqueda de Productos</h2>
+            
+            <form id="searchForm" class="search-form">
+                <div class="filters-grid">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Buscar por nombre">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="categoria">Categoría</label>
+                        <select id="categoria" name="categoria">
+                            <option value="">Todas las categorías</option>
+                            <option value="Floral">Floral</option>
+                            <option value="Fresco">Fresco</option>
+                            <option value="Oriental">Oriental</option>
+                            <option value="Cítrico">Cítrico</option>
+                            <option value="Amaderado">Amaderado</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="precioMin">Precio Mínimo</label>
+                        <input type="number" id="precioMin" name="precioMin" min="0" placeholder="Precio mínimo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="precioMax">Precio Máximo</label>
+                        <input type="number" id="precioMax" name="precioMax" min="0" placeholder="Precio máximo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genero">Género</label>
+                        <select id="genero" name="genero">
+                            <option value="">Todos los géneros</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Unisex">Unisex</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="limpiarBtn" class="btn-secondary">Limpiar Filtros</button>
+                    <button type="submit" class="btn-primary">Buscar</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="results-section">
+            <div id="loadingIndicator" class="loading-indicator hidden">
+                <div class="spinner"></div>
+                <p>Buscando productos...</p>
+            </div>
+
+            <div id="resultsContainer" class="hidden">
+                <h3>Resultados de la Búsqueda</h3>
+                <div class="table-container">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Categoría</th>
+                                <th>Precio</th>
+                                <th>Género</th>
+                                <th>Intensidad</th>
+                                <th>Stock</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsBody">
+                            <!-- Results will be dynamically inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination">
+                    <button id="prevPageBtn" class="pagination-btn" disabled>&larr; Anterior</button>
+                    <span class="pagination-info">Página <span id="currentPage">1</span> de <span id="totalPages">1</span></span>
+                    <button id="nextPageBtn" class="pagination-btn" disabled>Siguiente &rarr;</button>
+                </div>
+            </div>
+
+            <div id="noResults" class="no-results hidden">
+                <p>No se encontraron productos que coincidan con los criterios de búsqueda.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Perfumes Exclusivos. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/busqueda.js"></script>
+</body>
+</html>

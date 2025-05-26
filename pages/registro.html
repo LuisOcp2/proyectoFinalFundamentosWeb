@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Productos - Perfumes Exclusivos</title>
+    <link rel="stylesheet" href="../css/registro.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>Perfumes Exclusivos</h1>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="busqueda.html">Búsqueda</a></li>
+          <li><a href="indicaciones.html">Indicaciones</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="form-container">
+        <h2>Registro de Nuevo Producto</h2>
+        <form id="registroForm" novalidate>
+          <div class="form-group">
+            <label for="nombre">Nombre del Perfume*</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              maxlength="20"
+              required
+            />
+            <span class="help-text">Máximo 20 caracteres</span>
+          </div>
+
+          <div class="form-group">
+            <label for="categoria">Categoría*</label>
+            <select id="categoria" name="categoria" required>
+              <option value="">Seleccione una categoría</option>
+              <option value="Floral">Floral</option>
+              <option value="Fresco">Fresco</option>
+              <option value="Oriental">Oriental</option>
+              <option value="Cítrico">Cítrico</option>
+              <option value="Amaderado">Amaderado</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="imagen">Imagen*</label>
+            <select id="imagen" name="imagen" required>
+              <option value="">Seleccione una imagen</option>
+             
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="codigo">Código*</label>
+            <input type="text" id="codigo" name="codigo" required />
+            <span class="help-text"
+              >Mínimo 8 caracteres, al menos 1 minúscula, 1 mayúscula y 2
+              números</span
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="precio">Precio*</label>
+            <input type="number" id="precio" name="precio" min="1" required />
+            <span class="help-text">Solo números enteros en pesos</span>
+          </div>
+
+          <div class="form-group">
+            <label for="volumen">Volumen (ml)*</label>
+            <select id="volumen" name="volumen" required>
+              <option value="">Seleccione el volumen</option>
+              <option value="30">30 ml</option>
+              <option value="50">50 ml</option>
+              <option value="75">75 ml</option>
+              <option value="100">100 ml</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="intensidad">Intensidad*</label>
+            <select id="intensidad" name="intensidad" required>
+              <option value="">Seleccione la intensidad</option>
+              <option value="Suave">Suave</option>
+              <option value="Media">Media</option>
+              <option value="Fuerte">Fuerte</option>
+              <option value="Intensa">Intensa</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="genero">Género*</label>
+            <select id="genero" name="genero" required>
+              <option value="">Seleccione el género</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+              <option value="Unisex">Unisex</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="temporada">Temporada*</label>
+            <select id="temporada" name="temporada" required>
+              <option value="">Seleccione la temporada</option>
+              <option value="Primavera">Primavera</option>
+              <option value="Verano">Verano</option>
+              <option value="Otoño">Otoño</option>
+              <option value="Invierno">Invierno</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="stock">Stock*</label>
+            <input type="number" id="stock" name="stock" min="0" required />
+            <span class="help-text">Cantidad disponible en inventario</span>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" id="limpiarBtn" class="btn-secondary">
+              Limpiar
+            </button>
+            <button type="submit" class="btn-primary">
+              Registrar Producto
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Perfumes Exclusivos. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/registro.js"></script>
+    <script>
+      // Llenar el select de imágenes usando el array 'imagenes' de data.js
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof imagenes !== "undefined" && Array.isArray(imagenes)) {
+          const imagenSelect = document.getElementById('imagen');
+          imagenes.forEach(img => {
+            const option = document.createElement('option');
+            option.value = img.ruta; // Guardar la ruta como value
+            option.textContent = img.name; // Mostrar el nombre
+            imagenSelect.appendChild(option);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

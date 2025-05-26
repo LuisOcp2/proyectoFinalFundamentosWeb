@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productos - Perfumes Exclusivos</title>
+    <link rel="stylesheet" href="../css/productos.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>Perfumes Exclusivos</h1>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="./pages/registro.html">Registrar</a></li>
+          <li><a href="./pages/busqueda.html">Búsqueda</a></li>
+          <li><a href="./pages/indicaciones.html">Indicaciones</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="products-header">
+        <h2>Catálogo de Productos</h2>
+        <div class="pagination-info">
+          <span
+            >Página <span id="currentPage">1</span> de
+            <span id="totalPages">1</span></span
+          >
+        </div>
+      </section>
+
+      <section class="products-grid" id="productsContainer">
+        <!-- Products will be dynamically inserted here -->
+      </section>
+
+      <section class="pagination-controls">
+        <button id="prevPage" class="pagination-btn">&larr; Anterior</button>
+        <button id="nextPage" class="pagination-btn">Siguiente &rarr;</button>
+      </section>
+    </main>
+
+    <template id="productTemplate">
+      <article class="product-card">
+        <div class="product-image">
+          <img src="" alt="Imagen del perfume" />
+        </div>
+        <div class="product-info">
+          <h3 class="product-name"></h3>
+          <p class="product-category"></p>
+          <p class="product-price"></p>
+          <div class="product-details">
+            <span class="product-volume"></span>
+            <span class="product-intensity"></span>
+            <span class="product-gender"></span>
+          </div>
+          <p class="product-season"></p>
+          <p class="product-stock"></p>
+        </div>
+      </article>
+    </template>
+
+    <footer>
+      <p>&copy; 2024 Perfumes Exclusivos. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/productos.js"></script>
+  </body>
+</html>
