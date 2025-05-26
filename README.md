@@ -27,35 +27,6 @@ Una aplicación web para gestionar un catálogo de perfumes, permitiendo visuali
   - Campo obligatorio
 
 - **Código**:
-
-=======
-## Estructura del Proyecto 📁
-
-```
-proyectoFinal/
-├── index.html          # Página principal
-├── css/               # Estilos
-│   ├── index.css
-│   ├── productos.css
-│   ├── registro.css
-│   ├── busqueda.css
-│   └── indicaciones.css
-├── js/                # Lógica
-│   ├── data.js        # Gestión de datos
-│   ├── productos.js   # Funcionalidad productos
-│   ├── registro.js    # Validación formulario
-│   ├── busqueda.js    # Lógica de búsqueda
-│   └── index.js       # Scripts principales
-├── pages/             # Páginas adicionales
-│   ├── productos.html
-│   ├── registro.html
-│   ├── busqueda.html
-│   └── indicaciones.html
-└── img/               # Imágenes de productos
-```
-
-## Requisitos de Producto 📋
-
 ### Validación de Datos
 
 - **Nombre**: 
