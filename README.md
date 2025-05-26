@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Essence - Tu Perfumería Online 🌺
+=======
+# Essence - Tu Perfumería Online 
+>>>>>>> 7d4547313e2175277fb7f99b8f84ba69644817a7
 
 Una aplicación web para gestionar un catálogo de perfumes, permitiendo visualizar, buscar y registrar productos de manera eficiente.
 
@@ -14,6 +18,7 @@ Una aplicación web para gestionar un catálogo de perfumes, permitiendo visuali
 - **Persistencia de Datos**: Almacenamiento local usando LocalStorage
 - **Interfaz Responsiva**: Diseño adaptable a diferentes dispositivos
 
+<<<<<<< HEAD
 ### Validación de Datos
 
 - **Nombre**:
@@ -23,13 +28,52 @@ Una aplicación web para gestionar un catálogo de perfumes, permitiendo visuali
 
 - **Código**:
 
+=======
+## Estructura del Proyecto 📁
+
+```
+proyectoFinal/
+├── index.html          # Página principal
+├── css/               # Estilos
+│   ├── index.css
+│   ├── productos.css
+│   ├── registro.css
+│   ├── busqueda.css
+│   └── indicaciones.css
+├── js/                # Lógica
+│   ├── data.js        # Gestión de datos
+│   ├── productos.js   # Funcionalidad productos
+│   ├── registro.js    # Validación formulario
+│   ├── busqueda.js    # Lógica de búsqueda
+│   └── index.js       # Scripts principales
+├── pages/             # Páginas adicionales
+│   ├── productos.html
+│   ├── registro.html
+│   ├── busqueda.html
+│   └── indicaciones.html
+└── img/               # Imágenes de productos
+```
+
+## Requisitos de Producto 📋
+
+### Validación de Datos
+
+- **Nombre**: 
+  - Máximo 20 caracteres
+  - Campo obligatorio
+
+- **Código**: 
+>>>>>>> 7d4547313e2175277fb7f99b8f84ba69644817a7
   - Mínimo 8 caracteres
   - Al menos una letra mayúscula
   - Al menos una letra minúscula
   - Al menos 2 números
 
 - **Categorías Disponibles**:
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7d4547313e2175277fb7f99b8f84ba69644817a7
   - Floral
   - Fresco
   - Oriental
@@ -71,13 +115,20 @@ Una aplicación web para gestionar un catálogo de perfumes, permitiendo visuali
 
 ## Características Técnicas 💻
 
+<<<<<<< HEAD
 - **Almacenamiento**:
 
+=======
+- **Almacenamiento**: 
+>>>>>>> 7d4547313e2175277fb7f99b8f84ba69644817a7
   - Utiliza LocalStorage para persistencia de datos
   - Clave de almacenamiento: "perfumes_data"
 
 - **Paginación**:
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7d4547313e2175277fb7f99b8f84ba69644817a7
   - 15 productos por página
   - Cálculo automático del total de páginas
 

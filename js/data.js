@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 let imagenes = [
+=======
+const imagenes = [
+>>>>>>> 7d4547313e2175277fb7f99b8f84ba69644817a7
   {
     name: "imagen1",
     ruta: "../img/img1.png",
@@ -40,7 +44,11 @@ let imagenes = [
     ruta: "../img/img10.png",
   },
 ];
+<<<<<<< HEAD
 let perfumes = [
+=======
+const perfumes = [
+>>>>>>> 7d4547313e2175277fb7f99b8f84ba69644817a7
   {
     id: 1,
     nombre: "Limón Spark",
@@ -823,6 +831,7 @@ let perfumes = [
     stock: 36,
   },
 ];
+<<<<<<< HEAD
 // Define la clave que se usará para guardar los datos en el LocalStorage
 const STORAGE_KEY = "perfumes_data";
 
@@ -953,3 +962,5 @@ function validarProducto(product) {
 
 // Inicializa los datos cuando se carga el script
 inicializarDatos();
+=======
+>>>>>>> 7d4547313e2175277fb7f99b8f84ba69644817a7
