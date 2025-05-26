@@ -40,7 +40,6 @@ let imagenes = [
     ruta: "../img/img10.png",
   },
 ];
-
 let perfumes = [
   {
     id: 1,
@@ -824,88 +823,118 @@ let perfumes = [
     stock: 36,
   },
 ];
+// Define la clave que se usará para guardar los datos en el LocalStorage
 const STORAGE_KEY = "perfumes_data";
 
 // Función para inicializar los datos, cargándolos desde LocalStorage o usando los datos por defecto
 function inicializarDatos() {
+  // Obtiene los datos almacenados en LocalStorage usando la clave definida
   const storedData = localStorage.getItem(STORAGE_KEY);
+  // Si existen datos almacenados...
   if (storedData) {
+    // Parsea los datos de JSON a un objeto JavaScript y los asigna a la variable perfumes
     perfumes = JSON.parse(storedData);
   } else {
+    // Si no hay datos almacenados, guarda los datos por defecto (perfumes) en LocalStorage
     localStorage.setItem(STORAGE_KEY, JSON.stringify(perfumes));
   }
 }
 
 // Función para guardar los datos actuales en LocalStorage
 function guardarDatos() {
+  // Convierte el array perfumes a JSON y lo guarda en LocalStorage
   localStorage.setItem(STORAGE_KEY, JSON.stringify(perfumes));
 }
 
 // Función para obtener productos con paginación
 function obtenerProductos(page = 1, limit = 15) {
+  // Calcula el índice de inicio según la página y límite
   const start = (page - 1) * limit;
+  // Calcula el índice final
   const end = start + limit;
+  // Retorna un objeto con los productos paginados y metadatos de la paginación
   return {
-    products: perfumes.slice(start, end),
-    total: perfumes.length,
-    totalPages: Math.ceil(perfumes.length / limit),
+    products: perfumes.slice(start, end), // Obtiene el segmento del array según la paginación
+    total: perfumes.length, // Total de productos
+    totalPages: Math.ceil(perfumes.length / limit), // Total de páginas calculado
   };
 }
 
 // Función para buscar productos con múltiples filtros (retorna una Promise)
 function buscarProductos(filters) {
   return new Promise((resolve) => {
+    // Simula un retraso de 2 segundos como se requiere
     setTimeout(() => {
+      // Inicia con todos los productos
       let results = perfumes;
 
+      // Filtra por nombre si está presente en los filtros
       if (filters.nombre) {
         results = results.filter((p) =>
           p.nombre.toLowerCase().includes(filters.nombre.toLowerCase())
         );
       }
 
+      // Filtra por categoría si está presente
       if (filters.categoria) {
         results = results.filter((p) => p.categoria === filters.categoria);
       }
 
+      // Filtra por precio mínimo si está presente
       if (filters.precioMin) {
         results = results.filter((p) => p.precio >= filters.precioMin);
       }
 
+      // Filtra por precio máximo si está presente
       if (filters.precioMax) {
         results = results.filter((p) => p.precio <= filters.precioMax);
       }
 
+      // Filtra por género si está presente
       if (filters.genero) {
         results = results.filter((p) => p.genero === filters.genero);
       }
 
+      // Resuelve la Promise con los resultados filtrados
       resolve(results);
-    }, 2000);
+    }, 2000); // Retraso de 2 segundos como se requiere
   });
 }
 
 // Función para agregar un nuevo producto
 function agregarProducto(product) {
+  // Valida los campos requeridos del producto
   if (!validarProducto(product)) {
+    // Lanza un error si la validación falla
     throw new Error("Invalid product data");
   }
 
+  // Genera un nuevo ID como el máximo ID existente + 1
   const newId = Math.max(...perfumes.map((p) => p.id)) + 1;
   product.id = newId;
 
+  // Agrega el nuevo producto al array
   perfumes.push(product);
+  // Guarda los datos actualizados
   guardarDatos();
+  // Retorna el producto agregado
   return product;
 }
 
 // Función para validar los datos de un producto
 function validarProducto(product) {
+  // Validación del nombre: debe existir y tener máximo 20 caracteres
   if (!product.nombre || product.nombre.length > 20) return false;
 
+  // Validación del código: expresión regular que requiere:
+  // - Mínimo 8 caracteres
+  // - Al menos 1 letra minúscula
+  // - Al menos 1 letra mayúscula
+  // - Al menos 2 números
   const codeRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d.*\d).{8,}$/;
   if (!codeRegex.test(product.codigo)) return false;
 
+  // Validación de categoría: debe estar en la lista de categorías válidas
   const validCategories = [
     "Floral",
     "Fresco",
@@ -915,9 +944,12 @@ function validarProducto(product) {
   ];
   if (!validCategories.includes(product.categoria)) return false;
 
+  // Validación de precio: debe ser un número mayor que 0
   if (typeof product.precio !== "number" || product.precio <= 0) return false;
 
+  // Si pasa todas las validaciones, retorna true
   return true;
 }
 
+// Inicializa los datos cuando se carga el script
 inicializarDatos();

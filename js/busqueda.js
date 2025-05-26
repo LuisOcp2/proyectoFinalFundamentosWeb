@@ -1,7 +1,7 @@
 // Elementos del DOM
 // Obtiene referencias a los elementos HTML que necesitamos manipular
-const searchForm = document.getElementById("searchForm"); // Formulario principal de búsqueda
-const limpiarBtn = document.getElementById("limpiarBtn"); // Botón para restablecer filtros
+const searchForm = document.getElementById("searchForm"); // Formulario de búsqueda
+const limpiarBtn = document.getElementById("limpiarBtn"); // Botón para limpiar filtros
 const loadingIndicator = document.getElementById("loadingIndicator"); // Indicador de carga
 const resultsContainer = document.getElementById("resultsContainer"); // Contenedor de resultados
 const resultsBody = document.getElementById("resultsBody"); // Cuerpo de la tabla de resultados
@@ -28,24 +28,34 @@ function formatearMoneda(amount) {
 }
 
 // Mostrar/ocultar estado de carga
-// Controladores de estado visual
 function alternarCarga(show) {
-  // Muestra u oculta el indicador de carga según el parámetro
-  loadingIndicator.classList.toggle("hidden", !show);
-  // Alternamos la visibilidad de los resultados mientras carga
-  resultsContainer.classList.toggle("hidden", show);
+  // show: booleano que indica si mostrar el indicador de carga
+  loadingIndicator.classList.toggle("hidden", !show); // Muestra/oculta indicador
+  resultsContainer.classList.toggle("hidden", show); // Muestra/oculta resultados
+  noResults.classList.toggle("hidden", true); // Siempre oculta "no hay resultados"
 }
 
-// Crea una fila de tabla con estilo para cada producto
+// Crear fila de tabla para un producto
 function crearFilaProducto(product) {
-  // Generamos estructura HTML con los datos del producto
   const row = document.createElement("tr");
+
+  // Ruta corregida para archivos en subcarpeta pages/
   row.innerHTML = `
-    <td><img src="../img/${product.imagen}" 
-         alt="Fotografía de ${product.nombre}"
-         class="imagen-producto"></td>
+    <td><img src="../img/${product.imagen}" alt="${product.nombre}"></td>
     <td>${product.nombre}</td>
+    <td>${product.categoria}</td>
+    <td>${formatearMoneda(product.precio)}</td>
+    <td>${product.genero}</td>
+    <td>${product.intensidad}</td>
+    <td class="${product.stock < 10 ? "low-stock" : ""}">
+      ${product.stock} unidades
+    </td>
   `;
+
+  // Comentar la opción anterior que era para raíz
+  // row.innerHTML = `
+  //   <td><img src="img/${product.imagen}" ...
+
   return row;
 }
 
